@@ -372,3 +372,4 @@ class AIMovePicker:
 
         
         for move in self.board.valid_moves():
+            return
