@@ -4,6 +4,7 @@ from collections import OrderedDict, namedtuple
 
 #=====================================================================
 # Move logic for Draughts 100 International Rules
+# 
 #=====================================================================
 
 # Remember:
@@ -69,7 +70,7 @@ NE = [0] + map( int, NE_ext.split() ) + [0]
 NW = [0] + map( int, NW_ext.split() ) + [0]
 SE = [0] + map( int, SE_ext.split() ) + [0]
 SW = [0] + map( int, SW_ext.split() ) + [0]
-
+#py2需要在此处理才能上py3
 def diagonal(i, d):
    # Generator for squares from i in direction d
    next = i
@@ -298,6 +299,8 @@ def moveTableSize():     # PUBLIC
 # *********************************************************************************
 def main():
    print('nothing to do')
+   print('waibibabu????')
+
    return 0
 
 if __name__ == '__main__':

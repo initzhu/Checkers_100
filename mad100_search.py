@@ -21,7 +21,7 @@ TABLE_SIZE = 1e6  # constant of maximum number allowed items in transposition ta
 # The MAX_NODES constant controls how much time we spend on looking for optimal moves.
 # This is the default max number of nodes searched.
 #
-MAX_NODES = 1000
+MAX_NODES = 1919810
 
 # The MATE_VALUE constant is the limit for stop searching 
 #   score <= -MATE_VALUE: player won
@@ -364,6 +364,32 @@ def alphabeta(pos, alpha, beta, depthleft, player):
 
    return bestValue
 
+
+   #  Alpha-Beta剪枝算法：
+   #      Alpha-Beta剪枝是一种用于搜索博弈树（例如国际象棋、围棋等）的优化算法。它通过减少搜索的分支，提高了搜索效率。
+   #      该算法在搜索树中递归地评估每个可能的着法，并根据已知的最佳和最差分数来剪枝。
+   #      它维护两个值：alpha（当前节点的最佳已知分数）和beta（对手节点的最佳已知分数）。
+   #      如果某个节点的分数超出了这两个范围，就可以剪枝，不再搜索该节点的子树。
+
+   #  函数参数：
+   #      pos：当前局面的表示（例如棋盘状态）。
+   #      alpha：当前节点的最佳已知分数（初始为负无穷大）。
+   #      beta：对手节点的最佳已知分数（初始为正无穷大）。
+   #      depthleft：剩余搜索深度。
+   #      player：当前玩家（0表示先手，1表示后手）。
+
+   #  函数主要步骤：
+   #      首先，它检查是否已经在转置表（transposition table）中找到了当前局面的结果，如果找到且深度足够，就直接返回结果。
+   #      然后，它检查是否已经达到了终局状态（例如胜利或失败），如果是，则返回相应的分数。
+   #      接下来，它应用“空着法启发式”（null move heuristic），以提高搜索速度。
+   #      然后，它生成当前局面的所有合法着法，并根据Alpha-Beta剪枝规则搜索子树。
+   #      最后，它将结果存储到转置表中，以便后续搜索时使用。
+
+   #  其他细节：
+   #      tpab 是一个转置表，用于存储局面和对应的搜索结果。
+   #      hasCapture(pos) 检查当前局面是否有吃子着法。
+   #      Entry_tpab 是一个用于存储转置表条目的数据结构。
+
 def search_ab(pos, maxn=MAX_NODES):
     # Iterative deepening alpha-beta search enhanced with aspiration windows
     global ynodes; ynodes = 0
@@ -517,6 +543,7 @@ def clearSearchTables():
 ###############################################################################
 def main():
    print('nothing to do')
+   print('waibibabu????')
    return 0
 
 if __name__ == '__main__':

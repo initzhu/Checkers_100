@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#! python2.7
 
 #=====================================================================
 # Module methods for playing a game
@@ -110,6 +110,8 @@ def render_pv(origc, pos, tp):
 ###############################################################################
 def main():
    print('nothing to do')
+   print('waibibabu????')
+
    return 0
 
 if __name__ == '__main__':

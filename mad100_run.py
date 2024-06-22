@@ -24,11 +24,12 @@ WHITE, BLACK = 0, 1
 def main():
     print("=============================================================")
     print("| MAD100: Python engine for draughts 100 international rules | ")
+    print("| MAD100: 基于国际跳棋100(格)  兵能向后跳吃 王能飞             | ")
     print("=============================================================")
 
     stack = []
     stack.append('new')          # initial board
-    stack.append('nodes 1000')   # initial level
+    stack.append('nodes 114514')   # initial level
     ptr = -1                     # move pointer
     pv_list = []
 
@@ -261,7 +262,7 @@ def main():
             # If no second argument, the moveTable is not disabled
             # If second argument, the maxtimes is set to the second argument.
             # Note that the speed depends on the position (number of legal moves)
-            maxtimes = 10000   # default
+            maxtimes = 40000   # default
 
             mt_disabled = False if len(comm.split()) == 1 else True
             if len(comm.split()) == 2:
